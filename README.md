@@ -4,7 +4,7 @@ API 키 없이 브라우저에서 작동하는 한국어 N행시 초안 제작�
 
 ## 실행
 
-Node.js 22 이상에서 `npm.cmd run dev`를 실행하고 http://127.0.0.1:4178 을 엽니다. 외부 의존성 설치는 필요 없습니다. 검사는 `npm.cmd test`입니다. `public/` 전체가 실행에 필요한 정적 파일 묶음입니다. HTML 파일 더블클릭 대신 HTTP 서버를 사용하세요.
+Node.js 22 이상에서 `npm.cmd run dev`를 실행하고 http://127.0.0.1:4186 을 엽니다. 외부 의존성 설치는 필요 없습니다. 검사는 `npm.cmd test`입니다. `public/` 전체가 실행에 필요한 정적 파일 묶음입니다. HTML 파일 더블클릭 대신 HTTP 서버를 사용하세요.
 
 ## 기능
 
@@ -33,3 +33,4 @@ Node.js 22 이상에서 `npm.cmd run dev`를 실행하고 http://127.0.0.1:4178 
 요청받은 AdSense 스크립트·확인 메타 태그를 콘텐츠 페이지 head에 삽입하고 루트 ads.txt에 게시자 정보를 기록했습니다. 404 페이지에는 광고를 넣지 않습니다. 승인이나 수익을 보장하지 않으며, AdSense 사이트 등록·심사 요청·지역별 CMP 설정은 게시자 계정에서 관리해야 합니다. 별도의 광고 슬롯 ID가 없으므로 수동 광고 슬롯을 임의 생성하지 않았습니다.
 
 검토 기준: https://adsense-ko.googleblog.com/2012/09/2.html 및 https://adsense.googleblog.com/2012/04/tips-for-creating-high-quality-sites.html . 실제 기능 우선, 별도 주제의 유용한 작성 가이드, 중복 페이지 제한, 명확한 탐색과 문의, 과장 없는 생성 한계·데이터 안내를 적용했습니다.
+

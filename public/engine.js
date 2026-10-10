@@ -11,7 +11,8 @@ export function generate(value,{count=3,length='medium',tone='warm',random=Math.
  const chars=normalizeWord(value);if(!Number.isInteger(count)||count<1||count>10)throw new Error('결과 개수는 1~10개입니다.');if(!themes[tone]||!['short','medium','long'].includes(length))throw new Error('지원하지 않는 설정입니다.');
  const t=themes[tone], pick=a=>a[Math.floor(random()*a.length)%a.length], out=[],seen=new Set();
  for(let n=0;n<count;n++){let lines;let key;for(let attempt=0;attempt<40;attempt++){
- lines=chars.map((char,i)=>{const starters=lexicon.get(char);const start=starters?pick(starters):char+',';const tail=pick(i===chars.length-1?t.end:t.middle);const base=start+' '+tail;return length==='short'?start+' '+(i===chars.length-1?pick(['내일을 꿈꿔요','함께 웃어요','빛으로 남아요','오늘을 기억해요']):pick(['마음을 나눠요','한 걸음 걸어요','하루를 담아요','잠깐 쉬어가요'])):base+(length==='long'?' '+pick(t.extra):'');});key=lines.join('\n');if(!seen.has(key))break;}
+ lines=chars.map((char,i)=>{const starters=lexicon.get(char);const start=starters?pick(starters):char+',';const tail=pick(i===chars.length-1?t.end:t.middle);const base=start+' '+tail;return length==='short'?start+' '+(i===chars.length-1?pick(tone==='funny'?['웃으면 성공이에요','간식은 못 참아요','오늘도 해냈어요','일단 밥부터 먹어요']:tone==='poetic'?['빛으로 남아요','계절을 기다려요','별 하나 담아요','여백을 남겨요']:['내일을 꿈꿔요','함께 웃어요','곁에 있을게요','오늘을 기억해요']):pick(tone==='funny'?['이불과 협상해요','간식을 찾아요','커피를 충전해요','메뉴를 고민해요']:tone==='poetic'?['바람을 읽어요','저녁을 담아요','달빛을 따라요','계절을 써요']:['마음을 나눠요','한 걸음 걸어요','하루를 담아요','잠깐 쉬어가요'])):base+(length==='long'?' '+pick(t.extra):'');});key=lines.join('\n');if(!seen.has(key))break;}
  if(seen.has(key))throw new Error('새 조합을 만들지 못했어요. 다시 시도해 주세요.');seen.add(key);out.push(lines);}
  return out;
 }
+
